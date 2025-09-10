@@ -1,21 +1,29 @@
 package desafio1009;
 
-public class PrimosVersao01 implements Runnable {
+public class PrimosVersao01 {
 
-    private int inicio;
-    private int fim;
-
-    public PrimosVersao01(int inicio, int fim) {
-        this.inicio = inicio;
-        this.fim = fim;
+    // Método que verifica se um número é primo
+    public static boolean isPrimo(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    @Override
-    public void run() {
-        for (int i = 1; i <= 10; i++) {
-           
-          
+    public static void main(String[] args) {
+        int inicio = 5;
+        int fim = 25;
+
+        System.out.print("Primos existentes: ");
+        for (int i = inicio; i <= fim; i++) {
+            if (isPrimo(i)) {
+                System.out.print(i + " ");
+            }
         }
     }
 }
-
